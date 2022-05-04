@@ -33,9 +33,9 @@ const MoviesApi = (props) => {
         cat = "/tv/popular"
     }
     //https://api.themoviedb.org/3/movie/popular?api_key=0a803c18aba60c067431d8a7cb9a7cd4&language=en-US&page=1
-    // const api_key = "0a803c18aba60c067431d8a7cb9a7cd4";
-    // const featured_api = `https://api.themoviedb.org/3${cat}?api_key=${api_key}&language=en-US&page=${page}`;
-    const featured_api = `https://api.tvmaze.com/search/shows?q=friends}`;
+     const api_key = "0a803c18aba60c067431d8a7cb9a7cd4";
+     const featured_api = `https://api.themoviedb.org/3${cat}?api_key=${api_key}&language=en-US&page=${page}`;
+    //const featured_api = `https://api.tvmaze.com/search/shows?q=friends}`;
 
 
     const fetchMovies = async () => {
@@ -53,18 +53,21 @@ const MoviesApi = (props) => {
         else{
             if(movies === []){
                 setProgress(50);
-                setmovies(moviesParsed);
+                setmovies(moviesParsed.results);
                 setProgress(70);
+                setTpage(moviesParsed.total_pages);
                 setProgress(100);
             }
             else{
                 setProgress(50);
-                setmovies(movies.concat(moviesParsed));
+                setmovies(movies.concat(moviesParsed.results));
                 setProgress(70);
+                setTpage(moviesParsed.total_pages);
                 setProgress(100);
             }
         }
         setTimeout(setisLoading(false), 1000);
+        console.log('now'+movies)
         
 
     }
