@@ -12,12 +12,6 @@ export const SideBarData = [
         className: 'nav-text'
     },
     {
-        title: "Series",
-        path: "/series",
-        icon: <MdIcons.MdWebAsset/>,
-        className: 'nav-text'
-    },
-    {
         title: "About",
         path: "/about",
         icon: <FcIcons.FcAbout/>,
